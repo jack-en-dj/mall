@@ -1,6 +1,4 @@
 package com.mmall.dao;
-
-import com.google.common.collect.Lists;
 import com.mmall.pojo.Order;
 import org.apache.ibatis.annotations.Param;
 
