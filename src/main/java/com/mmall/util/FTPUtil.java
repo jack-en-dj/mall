@@ -53,6 +53,7 @@ public class FTPUtil {
                     fileInputStream =new FileInputStream(fileItem);
                     ftpClient.storeFile(fileItem.getName(),fileInputStream);
                 }
+                logger.info("连接成功。。。。");
             }catch (IOException e){
                 logger.error("上传文件异常",e);
                 uploaded =false;
@@ -70,6 +71,7 @@ public class FTPUtil {
         try {
             ftpClient.connect(ip);
             isSuccess =ftpClient.login(user,pwd);
+            logger.info("测试连接成功啊————————");
         } catch (IOException e) {
             logger.error("连接ftp服务器异常",e);
         }
