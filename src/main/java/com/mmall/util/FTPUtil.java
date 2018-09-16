@@ -40,6 +40,7 @@ public class FTPUtil {
         /*
         连接ftp服务器
          */
+        logger.info("连接ftp服务器");
         if (connectServer(this.ip,this.port,this.user,this.pwd)){
             try {
                 ftpClient.changeWorkingDirectory(remotePath);
