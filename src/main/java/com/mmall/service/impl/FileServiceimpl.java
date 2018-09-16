@@ -33,6 +33,7 @@ public class FileServiceimpl implements IFileService{
             //赋予文件操作的权限
             fileDir.setWritable(true);
             fileDir.mkdirs();
+            ///untils/apache-tomcat-8.0.53/webapps/ROOT/upload路径下创建文件路径
         }
         File targetFile =new File(path,uploadFileName);
         try {
@@ -41,7 +42,7 @@ public class FileServiceimpl implements IFileService{
             将targetFile上传到我们的FTP服务器上
             文件上传成功，上传成功删除upload下载的文件
              */
-            FTPUtil.uploadFile(Lists.<File>newArrayList(targetFile));
+            FTPUtil.uploadFile(Lists.newArrayList(targetFile));
             targetFile.delete();
         } catch (IOException e) {
             logger.error("上传文件异常",e);
