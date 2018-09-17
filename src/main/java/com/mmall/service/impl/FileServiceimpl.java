@@ -43,7 +43,7 @@ public class FileServiceimpl implements IFileService{
             将targetFile上传到我们的FTP服务器上
             文件上传成功，上传成功删除upload下载的文件
              */
-            System.out.println(targetFile);
+            System.out.println(targetFile+"失败了");
             FTPUtil.uploadFile(Lists.newArrayList(targetFile));
             targetFile.delete();
         } catch (IOException e) {
