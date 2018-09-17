@@ -33,9 +33,10 @@ public class FileServiceimpl implements IFileService{
             //赋予文件操作的权限
             fileDir.setWritable(true);
             fileDir.mkdirs();
-            ///untils/apache-tomcat-8.0.53/webapps/ROOT/upload路径下创建文件路径
+            //path:untils/apache-tomcat-8.0.53/webapps/ROOT/upload路径下创建文件路径
         }
         File targetFile =new File(path,uploadFileName);
+        System.out.println(targetFile.toString());
         try {
             file.transferTo(targetFile);
             /*
