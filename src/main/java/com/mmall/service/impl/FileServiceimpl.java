@@ -10,6 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -44,7 +46,10 @@ public class FileServiceimpl implements IFileService{
             文件上传成功，上传成功删除upload下载的文件
              */
             System.out.println(targetFile+"失败了");
-            FTPUtil.uploadFile(Lists.newArrayList(targetFile));
+            List<File> fileList = new ArrayList<File>();
+            fileList.add(targetFile);
+            FTPUtil.uploadFile(fileList);
+            //FTPUtil.uploadFile(Lists.newArrayList(targetFile));
             targetFile.delete();
         } catch (IOException e) {
             logger.error("上传文件异常",e);
