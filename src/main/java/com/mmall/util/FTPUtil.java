@@ -46,7 +46,6 @@ public class FTPUtil {
                 ftpClient.changeWorkingDirectory(remotePath);
                 ftpClient.setBufferSize(1024);
                 ftpClient.setControlEncoding("UTF-8");
-                ftpClient.makeDirectory(remotePath);
                 ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);//文件名设置成二进制
                 ftpClient.enterLocalPassiveMode();
                 for (File fileItem: fileList

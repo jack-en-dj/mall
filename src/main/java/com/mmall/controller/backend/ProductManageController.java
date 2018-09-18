@@ -129,9 +129,10 @@ public class ProductManageController {
             String path =request.getSession().getServletContext().getRealPath("upload");
             //tomcat下的路径  例如：服务器上的地址为：/untils/apache-tomcat-8.0.53/webapps/ROOT/upload
             String targetFileName =iFileService.upload(file,path);
-            String url = PropertiesUtil.getProperty("ftp.server.http.prefix")+targetFileName;
+            String urlPrefx =PropertiesUtil.getProperty("ftp.server.http.prefix").replace("\"","")+"/";
+            String url = urlPrefx+targetFileName;
             Map fileMap = Maps.newHashMap();
-            fileMap.put("url",targetFileName);
+            fileMap.put("imgName",targetFileName);
             fileMap.put("url",url);
             return ServerResponse.createBySuccess(fileMap);
         }
