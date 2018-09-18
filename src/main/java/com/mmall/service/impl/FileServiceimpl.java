@@ -46,10 +46,8 @@ public class FileServiceimpl implements IFileService{
             文件上传成功，上传成功删除upload下载的文件
              */
             System.out.println(targetFile+"失败了");
-            List<File> fileList = new ArrayList<File>();
-            fileList.add(targetFile);
-            FTPUtil.uploadFile(fileList);
-            //FTPUtil.uploadFile(Lists.newArrayList(targetFile));
+            System.out.println(Lists.newArrayList(targetFile));
+            FTPUtil.uploadFile(Lists.newArrayList(targetFile));
             targetFile.delete();
         } catch (IOException e) {
             logger.error("上传文件异常",e);
