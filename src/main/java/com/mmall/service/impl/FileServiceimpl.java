@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -46,7 +48,9 @@ public class FileServiceimpl implements IFileService{
             文件上传成功，上传成功删除upload下载的文件
              */
             System.out.println(targetFile+"失败了");
-            System.out.println(Lists.newArrayList(targetFile));
+            InputStream files =new FileInputStream(targetFile);
+            System.out.println(Lists.newArrayList(files));
+            System.out.println(targetFile.isFile()+"是否为文件对象");
             FTPUtil.uploadFile(Lists.newArrayList(targetFile));
             targetFile.delete();
         } catch (IOException e) {
