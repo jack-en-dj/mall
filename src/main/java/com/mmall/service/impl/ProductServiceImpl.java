@@ -93,7 +93,7 @@ public class ProductServiceImpl implements IProductService {
         productDetailVo.setSubImage(product.getSubImages());
         productDetailVo.setPrice(product.getPrice());
         productDetailVo.setSubtitle(product.getSubtitle());
-        productDetailVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix","localhost"));
+        productDetailVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix").replace("\"","")+"/");
         Category category =categoryMapper.selectByPrimaryKey(product.getCategoryId());
         if (category == null ){
             // 默认根节点
@@ -126,7 +126,7 @@ public class ProductServiceImpl implements IProductService {
         productListVo.setId(product.getId());
         productListVo.setMainImage(product.getMainImage());
         productListVo.setName(product.getName());
-        productListVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix","localhost"));
+        productListVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix").replace("\"","")+"/");
         productListVo.setPrice(product.getPrice());
         productListVo.setCategoryId(product.getCategoryId());
         productListVo.setSubtitle(product.getSubtitle());

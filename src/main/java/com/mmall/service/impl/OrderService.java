@@ -111,7 +111,7 @@ public class OrderService implements IOrderService {
         orderVo.setEndTime(DateTimeUtil.dateToStr(order.getEndTime()));
         orderVo.setCreateTime(DateTimeUtil.dateToStr(order.getCreateTime()));
         orderVo.setCloseTime(DateTimeUtil.dateToStr(order.getCloseTime()));
-        orderVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix"));
+        orderVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix").replace("\"","")+"/");
         List<OrderItemVo> orderItemVoList =Lists.newArrayList();
         for (OrderItem orderItem : orderItemList){
             orderItemVoList.add(assembleOrderItemVo(orderItem));
@@ -244,7 +244,7 @@ public class OrderService implements IOrderService {
         }
         orderProductVo.setProductTotalPrice(payment);
         orderProductVo.setOrderItemVoList(orderItemVoList);
-        orderProductVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix"));
+        orderProductVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix").replace("\"","")+"/");
         return serverResponse.createBySuccess(orderProductVo);
     }
     public ServerResponse<OrderVo> getOrderDetail(Integer userId,Long orderNo){

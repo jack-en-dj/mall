@@ -101,7 +101,7 @@ public class CartServiceImpl implements ICartService {
         cartVo.setCartTotalPrice(cartTotalPrice);
         cartVo.setCartProductVoList(cartProductVoList);
         cartVo.setAllChecked(this.getAllCheckedStatus(userId));
-        cartVo.setImageHost(PropertiesUtil.getProperty(""));
+        cartVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix").replace("\"","")+"/");
         return cartVo;
     }
     public ServerResponse<CartVo> update(Integer userId,Integer productId,Integer count){
