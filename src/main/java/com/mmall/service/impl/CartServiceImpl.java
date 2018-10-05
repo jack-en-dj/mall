@@ -50,6 +50,7 @@ public class CartServiceImpl implements ICartService {
             cart.setQuantity(count);
             cartMapper.updateByPrimaryKeySelective(cart);
         }
+        System.out.println(userId);
         return this.list(userId);
     }
     private CartVo getCartVoLimit(Integer userId){
