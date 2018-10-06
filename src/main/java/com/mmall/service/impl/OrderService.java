@@ -124,6 +124,7 @@ public class OrderService implements IOrderService {
         orderItemVo.setOrderNo(orderItem.getOrderNo());
         orderItemVo.setProductId(orderItem.getProductId());
         orderItemVo.setProductName(orderItem.getProductName());
+        orderItemVo.setCurrentUnitPrice(orderItem.getCurrentUnitPrice());
         orderItemVo.setProductImage(orderItem.getProductImage());
         orderItemVo.setQuantity(orderItem.getQuantity());
         orderItemVo.setTotalPrice(orderItem.getTotalPrice());
