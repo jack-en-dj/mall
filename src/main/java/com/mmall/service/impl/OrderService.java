@@ -69,6 +69,7 @@ public class OrderService implements IOrderService {
             return serverResponse;
         }
         List<OrderItem> orderItemList =(List<OrderItem>) serverResponse.getData();
+        //System.out.println(orderItemList.toString());
         BigDecimal payment =this.getOrderTotalPrice(orderItemList);
         //生成订单
         Order order =this.assembleOrder(userId,shippingId,payment);
@@ -80,6 +81,7 @@ public class OrderService implements IOrderService {
         }
         for (OrderItem orderItem : orderItemList){
             orderItem.setOrderNo(order.getOrderNo());
+            System.out.println(orderItem.getId());
         }
         //mybatis批量插入
         orderItemMapper.batchInsert(orderItemList);
@@ -89,7 +91,7 @@ public class OrderService implements IOrderService {
         this.cleanCart(cartList);
         //返回前端数据
         OrderVo orderVo = assembleOrderVo(order,orderItemList);
-        return ServerResponse.createBySuccess();
+        return ServerResponse.createBySuccess(orderVo);
     }
     private OrderVo assembleOrderVo(Order order,List<OrderItem> orderItemList){
         OrderVo orderVo = new OrderVo();
