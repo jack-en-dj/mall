@@ -36,7 +36,7 @@ public class ShippingController {
     }
     @RequestMapping("del.do")
     @ResponseBody
-    public ServerResponse add(HttpSession session,Integer shippingId){
+    public ServerResponse del(HttpSession session,Integer shippingId){
         User user =(User) session.getAttribute(Const.CURRENT_USER);
         if (user == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getDesc());
