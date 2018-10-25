@@ -427,7 +427,7 @@ public class OrderService implements IOrderService {
                     e.printStackTrace();
                 }
                 log.info("qrPath:" + qrPath);
-                String qrUrl = PropertiesUtil.getProperty("ftp.server.http.prefix").replace("\"","")+"/"+qrFileName;
+                String qrUrl = PropertiesUtil.getProperty("ftp.server.http.prefix").replace("\"","")+qrFileName;
                 resultMap.put("qrUrl",qrUrl);
                 return ServerResponse.createBySuccess(resultMap);
             case FAILED:
