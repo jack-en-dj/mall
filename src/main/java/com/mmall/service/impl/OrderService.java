@@ -218,7 +218,7 @@ public class OrderService implements IOrderService {
         if (order == null){
             return ServerResponse.createByErrorMessage("该用户此订单不存在");
         }
-        if (order.getStatus() != Const.OrderStatusEnum.NO_PAY.getCode()){
+        if (order.getStatus() == Const.OrderStatusEnum.PAID.getCode()){
             return ServerResponse.createByErrorMessage("已付款,无法取消订单");
         }
         Order updateOrder = new Order();
